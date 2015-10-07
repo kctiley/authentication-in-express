@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  header
+    table(style='width: 100%; color: white; background-color: gray')
+      tr
+        td(styl='width: 50%')
+          h2= title
+
+  h1= subtitle 
+  form(name= 'formSignUp', id='formSignUp', action='/', method='post')
+    table(style= 'width: 75%; border: 2px solid black; text-align: left')
+      tr
+        td(style= 'padding: 20px', class=inputStyleEmail || '') Email:
+      tr
+        td     
+          input(type= 'text', name= 'inputEmail', id= 'inputEmail', style= 'margin-left: 5%; width: 45%; height: 24px', value= filledEmail || '')
+          if errEmail
+            for each in errEmail
+              tr
+                td(style='color: red')= each 
+      tr
+        td(style= 'padding: 20px',  class=inputStylePass || '',) Password: 
+      tr
+        td      
+          input(type= 'text', name= 'inputPass', id= 'inputPass', style= 'margin-left: 5%; width: 45%; height: 24px', value= filledPass || '') 
+          if errPass
+            for each in errPass
+              tr
+                td(style='color: red')= each
+      tr
+        td(style= 'padding: 20px',  class=inputStylePassConf || '',) Password Confirmation: 
+      tr    
+        td
+          input(type= 'text', name= 'inputPassConf', id= 'inputPassConf', style= 'margin-left: 5%; width: 45%; height: 24px', value= filledPassConf || '') 
+          if errPass
+            for each in errPass
+              tr
+                td(style='color: red')= each
+      tr
+        div
+          td(style= 'padding: 20px') 
+            button(type= 'submit') Sign Up
